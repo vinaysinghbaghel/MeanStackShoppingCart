@@ -1,0 +1,21 @@
+<div class="col-sm-12 " permission="['admin']" ng-if="vm.flag">
+	<p><input type="text" ng-model="test" placeholder="search for User"></p>
+
+
+	<div class="row product-list" ng-repeat="user in vm.users | filter :test" ng-if="user.username !== 'admin'">
+		<div class="col-sm-6" >
+		FirstName :<strong>{{user.firstname}}</strong><br/>
+		LastName  :<strong>{{user.lastname}}</strong><br/>
+		UserName  :<strong>{{user.username}}</strong><br/>
+		Email     :<strong>{{user.email}}</strong><br/>
+		Mobile    :<strong>{{user.mobile}}</strong><br/>
+		Address   :<strong>{{user.address}}</strong><br/>
+		Role      :<strong>{{user.role}}</strong>
+		</div>
+		<div class="col-sm-6">
+			<a ui-sref="updateUser({userId : user._id})" style="text-decoration:none">Update User</a>
+			<a href="" ng-click="vm._delete(user._id)" style="text-decoration:none">Delete User</a>
+		</div>
+	</div>
+</div> 
+
