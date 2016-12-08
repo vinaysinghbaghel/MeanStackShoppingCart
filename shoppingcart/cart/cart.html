@@ -1,0 +1,72 @@
+<div class="col-md-12">
+
+<p class="text-info">
+    Thanks for shopping at the Angular Store.<br />
+</p>
+    <div class="row">
+        <div class="col-sm-12">
+
+  
+  				<table class="table table-bordered">
+
+				<!-- header -->
+                <tr class="well">
+                    <td><b>Item</b></td>
+                    <td class="tdCenter"><b>Quantity</b></td>
+                    <td class="tdRight"><b>Price</b></td>
+                    <td />
+                </tr>
+                
+                <!-- empty cart message -->
+                <tr ng-hide="vm.GetTotalItemCount() > 0" >
+                    <td class="tdCenter" colspan="4">
+                        Your cart is empty.
+                    </td>
+                </tr>
+			
+				<tr class="well" ng-repeat='items in vm.getCartItems'>
+					<td><a ui-sref='product({productName:items.productName})'>{{items.productName}}</a></td>
+					<td class="tdCenter">
+						<div class="input-append">
+							<span style="width:100px" class="btn btn-success">{{vm.GetQuantityByName(items.productName)}}</span>
+							
+							<button class="btn btn-primary" ng-click='vm.AddToCart(items.productName,+1)'>+</button> 
+          					<button class="btn btn-danger" ng-click='vm.AddToCart(items.productName,-1)'>-</button>
+          					
+						</div>
+					</td>
+					<td class="tdRight">{{vm.GetQuantityByName(items.productName) * items.productPrice | currency }}</td>
+					<td class="tdRight">
+					<button class="btn btn-danger" ng-click='vm.RemoveCartItem(items.productName)'>remove </button>
+					</td>
+				</tr>
+				
+                <!-- footer -->
+                <tr class="well">
+                    <td><b>Total</b></td>
+                    <td class="tdCenter"><b>{{vm.GetTotalItemCount()}}</b></td>
+                    <td class="tdRight"><b>{{vm.GetTotalItemPrice() | currency}}</b></td>
+                    <td />
+                </tr>
+            </table>
+        </div>
+
+        <!-- buttons -->
+        <div class="col-sm-12">
+            <p class="text-info">
+                <a href="#/" class="btn btn-block" style="text-decoration:none;background:grey;color:white">
+                    <i class="icon-chevron-left" /> back to store
+                </a>
+                <button 
+                    class="btn btn-block btn-danger" 
+                    ng-click=" "
+                    ng-disabled="cr.getTotalItemCount() < 100" >
+                    <i class="icon-trash icon-white" /> Payment
+                </button>
+            </p>
+
+            <br /><br />
+            </div>
+            </div>
+            </div>
+           
