@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mean Stack Shopping cart Example</title>
+
+	
+
+    <!-- BootStrap Css-->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+
+	
+	<link href="app-content/app.css" rel="stylesheet" />
+</head>
+<body ng-controller="mainCtrl">
+	<!-- Header Area Starts Here-->
+		<div class="container-fluid header">
+			<div class="row">
+				<div class="col-md-3" style="padding-left:70px;">
+				<a ui-sref="home({})" style="text-decoration:none;">	<img src="img/_small.png" width="50px" height="30px">
+					&nbsp; Shopping Cart</a>
+				</div> 
+				<!--End of col-md-4 div -->
+				
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12" style="padding-right:0px;">
+							<input class="form-control" ng-model="test" placeholder="Search Here" name="search" style="padding-bottom:5px;">
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-md-3" style="padding-top:10px;">
+					<div ng-if="!flag">
+						<a href='/login' class="fa fa-heart" style="text-decoration:none;">Login</a> &nbsp;&nbsp;
+						<a href='/register' class="fa fa-account" style="text-decoration:none;">Register</a>&nbsp;&nbsp;
+						<a ui-sref='.cart' class="fa fa-cart" style="text-decoration:none;">Cart - {{price() | currency}} for {{count()}} Items</a>&nbsp;
+					</div>	
+					<div ng-if="flag">
+						<a ui-sref="updateUser({userId : user._id})" class="fa fa-user" style="text-decoration:none;">{{user.username}}</a> |
+						<a href="/logout" class="fa fa-account" style="text-decoration:none;">Logout</a>&nbsp;&nbsp;&nbsp;
+						<div permission="['user']">
+						<a ui-sref='.cart' class="fa fa-cart" style="text-decoration:none;">Cart - {{price() | currency}} for {{count()}} Items</a>&nbsp;
+						</div>
+						<div permission="['admin','productHandler']">
+							<div permission="['admin']">	
+								<a ui-sref=".showUsers"  style="text-decoration:none;">Show Users</a>&nbsp;
+							</div>
+							<a ui-sref=".showProducts" style="text-decoration:none;">Show Products</a>&nbsp;
+						</div>
+						
+					</div>
+					
+				</div>
+				<!--End of col-md-4 div -->
+			</div>
+		</div>
+
+	<!-- End Header Area-->
+
+	<div class="container content" style="margin-top:10px;" ng-include src="'top-level-slider.html'" ng-hide="$state.includes(['showProducts','product','cart','updateProduct','showUsers'])">
+		
+	</div>
+	
+    
+    <div class="container product-container">
+		
+		<div class="row">
+					<main ui-view></main>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<div class="row">
+		
+		</div>
+	</div>
+	
+    
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    
+	<!--   Inbuilt js files -->
+	
+	<script src="app.js"></script>
+     
+<script src="service/userService.js"></script>
+	 <script src="service/ClientProductService.js"></script>
+	 <script src="service/ClientShoppingCart.js"></script>
+    <script src="home/home.controller.js"></script>
+	<script src="storedProducts/productController.js"></script>
+	<script src="cart/cartController.js"></script>
+	<script src="storedProducts/New_UpdateController.js"></script>
+	<script src="storedProducts/showProducts.js"></script>
+	<script src="storedProducts/newProduct.js"></script>
+	<script src="storedUsers/showUsers.js"></script>
+	<script src="storedUsers/updateUser.js"></script>
+</body>
+</html>
