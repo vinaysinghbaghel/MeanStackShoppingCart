@@ -35,4 +35,54 @@ To make 'productHandler' role in this application. Goto Register link placed at 
 
 For ease we make username - 'productHandler' and password - 'productHandler'.
 
+3) User Role - User role can only update its details and see product details and add them to cart.
 
+Username for role user can be anything other than 'admin' or 'productHandler'.
+
+
+After understanding all Role's mechanism , now lets understand how all things are working and can provide you secure access.
+
+Registration Process :
+
+When a new user register in the application ,  we first check if the username taken by him/her is unique in database and after that we make his/her password in hash form for security purpose . At last if username is not 'admin' or 'productHandler' we assign 'role' = 'user' for that particular user.
+
+1) For eliminating password field from user details we user lodash.omit() function.
+
+2) For hashing user password we use Bcyrpt.hashSync() function.
+
+    var user = lodash.omit(userParam,'password');
+
+		user.hash  = bcrypt.hashSync(userParam.password,10);
+
+		if(user.username === 'admin'){
+			user.role = 'admin';
+		}
+		else if(user.username === 'productHandler'){
+			user.role = 'productHandler';
+		}
+		else{
+			user.role = 'user';
+		}
+
+Login Process : 
+
+In Login Part , We simply compare user password with its hashed value save in the database at the time of creation of that particular user.After that we assign user a token(JSON web token) for further authentication to access all API's in MEAN stack app.
+
+1) For comparing user passsword and hashed value we use Bcyrpt.compareSync() function.
+
+2) For JSON Web Token, we use jwt.sign() function.
+
+						if(user && bcrypt.compareSync(password,user.hash)){
+							defer.resolve(jwt.sign({sub : user._id},config.secret));
+						}
+            
+After Successful Authentication , At client's header part we set this 'jsonwebtoken' for further API's authorization.  
+            
+ For Restricting all API's we use 'express-jwt' module of NODE js which check whether coming request from Client side have 'jsonwebtoken' in its header part or not.
+ 
+ 
+ app.use('/api',expressjwt({secret : config.secret}).unless({path : ['/api/users/authenticate','/api/users/register','/api/products/allProducts',/^\/api\/products\/productName\/.*/]}));
+ 
+ In above code, we are restricting our all API's and leaving those which are available for everyone in unless part.
+ 
+ 
