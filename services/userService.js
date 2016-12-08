@@ -174,7 +174,6 @@ function update(_id,userParam){
 
 function _delete(_id) {
     var deferred = Q.defer();
-	console.log("coming-------"+_id);
     db.users.remove(
         { _id: mongo.helper.toObjectID(_id) },
         function (err) {
