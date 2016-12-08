@@ -1,0 +1,29 @@
+ <div class="col-md-12">
+					<div ng-if="vm.flag">
+						<div ng-repeat="productItem in vm.productList |filter : test"">
+							<div  permission="['admin','user','productHandler']" class="col-md-3 product-list">
+									<a ui-sref='product({productName: productItem.productName})' style="text-decoration:none;">
+									<img src="img/{{productItem.productImg}}.jpg" height="150px" width="200px"><br/>
+									{{productItem.productName}}</a><br/>
+									Reviews : {{productItem.productReview}}/5<br/>
+									{{productItem.productPrice | currency}} <del>{{productItem.productMaxDiscount}}% off</del>
+									<a ng-disabled="productItem.productQuantity <= 0" ng-click="vm.addToCart(productItem.productName,productItem.productPrice,1)" style="text-decoration:none;">Add To Cart</a>
+							</div>	
+						</div>
+					</div>
+					<div ng-if="!vm.flag">
+						<div ng-repeat="productItem in vm.fakeProduct |filter : test">
+							<div  class="col-md-3 product-list">
+									<a ui-sref='product({productName: productItem.productName})' style="text-decoration:none;">
+									<img src="img/{{productItem.productImg}}.jpg" height="150px" width="200px"><br/>
+									{{productItem.productName}}</a><br/>
+									Reviews : {{productItem.productReview}}/5<br/>
+									{{productItem.productPrice | currency}} <del>{{productItem.productMaxDiscount}}% off</del>
+									<a ng-disabled="productItem.productQuantity <= 0" ng-click="vm.addToCart(productItem.productName,productItem.productPrice,1)" style="text-decoration:none;">Add To Cart</a>
+							</div>	
+						</div>
+					</div>
+						
+						
+					</div>
+   
