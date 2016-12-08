@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 
 //using middleware for maintaining session
-app.use(session({secret : config.secret,resave : true,saveUninitialized : true}));	
+app.use(session({secret : config.secret,resave : false,saveUninitialized : true}));	
 
 app.use( express.static( "public" ) );
 
