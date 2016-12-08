@@ -1,25 +1,25 @@
 # Mean-Stack-Shopping-Cart
-Mean Stack Shopping cart with User Role's and Permission using JWT Tokens.From this MEAN App , you can learn how to authenticate your API's with JSON web token , Maintaining User Role's and Permission at Url level to secure API's from Unauthorized Access as well as how to Show/Hide different views for different User roles.So Lets start with Mean stack Shoppingcart app setup.
+MEAN stack shoppingcart with user role's and permission using JWT tokens.From this MEAN app , you can learn how to authenticate your API's with JSON web token, maintaining user role's and permission at url level to secure API's from unauthorized access as well as how to show/hide different views for different user roles.So lets start with MEAN stack shoppingcart app setup.
 
-As this Application is only for learning purpose so it is developed for developer's only to understand concept and make use of it if they found it usefull in any terms.
+As this application is only for learning purpose so it is developed for developer's only to understand concept and make use of it, if they found it usefull in any terms.
 
-To see this Application in Action you need to follow below steps :
+To see this application in action you need to follow below steps :
 
-1) Download Node and mongodb setup , after that install on your local machine.
+1) Download node and mongodb setup, after that install on your local machine.
 
-2) Run mongod.exe from CMD or from mongodb installation path(C:/Program Files) to start Database.
+2) Run mongod.exe from CMD or from mongodb installation path(C:/Program Files) to start database.
 
-3) After Installation process, goto ShoppingCart folder From CMD. 
+3) After installation process, goto shoppingcart folder from CMD. 
 
-4) In CMD, Type 'npm install' to install all Node modules.
+4) In CMD, type 'npm install' to install all node modules.
 
-5) If Everything goes fine , type 'node server.js' in CMD to run server. If it start properly then it will give you message 'Server is running on address http://127.0.0.1 on port 3000'.
+5) If everything goes fine, type 'node server.js' in CMD to run server. If it start properly then it will give you message 'Server is running on address http://127.0.0.1 on port 3000'.
 
-6) GOTO Browser and Type '127.0.0.1:3000' or 'localhost:3000'. Congratulations Your app is in working conditions and you can proceed further to learn from it, to play with it, to find faluts or anything you want.
+6) GOTO Browser and type '127.0.0.1:3000' or 'localhost:3000'. Congratulations your app is in working conditions and you can proceed further to learn from it, to play with it, to find faluts or anything you want.
 
-To understand this MEAN Stack application and get full use of it please read below.
+To understand this MEAN stack application and get full use of it please read below.
 
-Mainly there are Three Roles in this MEAN app which are :
+Mainly there are three roles in this MEAN app which are :
 
 1) Admin role - Admin role can do everything in this application.He can see User details , able to update user Details and delete them. Admin role can also see all product details and can update them and delete them.  
 
