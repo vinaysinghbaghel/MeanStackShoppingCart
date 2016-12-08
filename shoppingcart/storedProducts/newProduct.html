@@ -1,0 +1,55 @@
+<div class="col-sm-12" ng-if="vm.flag">
+	<div class="row" permission="['admin','productHandler']">
+		<div class="col-sm-12">
+			<form name="form" ng-submit="vm.register()" role="form" >
+				<input type="file" name="vm.product.productImg" id="vm.product.productImg" file-mode="vm.product.productImg">
+				<div class="form-group">
+					<label for="vm.product.productName">Product Name</label>
+					<input type="text" id="vm.product.productName"  name="vm.product.productName" class="form-control" ng-model="vm.product.productName">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productCategory">Product Category</label>
+					<input type="text" id="vm.product.productCategory"  name="vm.product.productCategory" class="form-control" ng-model="vm.product.productCategory">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productSubCategory">Product Sub Category</label>
+					<input type="text" id="vm.product.productSubCategory"  name="vm.product.productSubCategory" class="form-control" ng-model="vm.product.productSubCategory">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productQuantity">Product Quantity</label>
+					<input type="text" id="vm.product.productQuantity"  name="vm.product.productQuantity" class="form-control" ng-model="vm.product.productQuantity">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productPrice">Product Price</label>
+					<input type="text" id="vm.product.productPrice"  name="vm.product.productPrice" class="form-control" ng-model="vm.product.productPrice">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productMaxDiscount">Product Max Discount</label>
+					<input type="text" id="vm.product.productMaxDiscount"  name="vm.product.productMaxDiscount" class="form-control" ng-model="vm.product.productMaxDiscount">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productReview">Product Review</label>
+					<input type="text" id="vm.product.productReview"  name="vm.product.productReview" class="form-control" ng-model="vm.product.productReview">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productDescription">Product Description</label>
+					<input type="text" id="vm.product.productDescription"  name="vm.product.productDescription" class="form-control" ng-model="vm.product.productDescription">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productSize">Product Size</label>
+					<input type="text" id="vm.product.productSize"  name="vm.product.productSize" class="form-control" ng-model="vm.product.productSize">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.productCompany">Product Company</label>
+					<input type="text" id="vm.product.productCompany"  name="vm.product.productCompany" class="form-control" ng-model="vm.product.productCompany">
+				</div>
+				<div class="form-group">
+					<label for="vm.product.Gender">Product Gender</label>
+					<input type="text" id="vm.product.Gender"  name="vm.product.Gender" class="form-control" ng-model="vm.product.Gender">
+				</div>
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+

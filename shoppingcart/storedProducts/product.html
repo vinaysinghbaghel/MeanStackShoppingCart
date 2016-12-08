@@ -1,0 +1,29 @@
+<div class="col-md-12 product-list">
+	<div class="row"  ng-if="vm.product.productName">
+		<div class="col-md-4">
+			<img src="img/{{vm.product.productImg}}.jpg" width="300px" height="300px">
+		</div>
+		<div  class="col-md-8" >
+			<h2>{{vm.product.productName}}</h2> <strong>{{vm.product.productPrice | currency}}</strong>
+			Company : <h6>{{vm.product.productCompany}}</h6>
+			<div permission="['admin','productHandler']" ng-if="vm.flag">
+				<a ui-sref='updateProduct({productName: vm.product.productName})' style="text-decoration:none;">Update</a><br/>
+				<a href="" ng-click="vm._delete(vm.product._id)" style="text-decoration:none;">Delete</a>
+			</div>
+			<strong>Description :</strong> {{vm.product.productDescription}}<br/>
+			<strong>Category  :</strong> {{vm.product.productCategory}}<br/>
+			<strong>Related TO :</strong> {{vm.product.productSubCategory}}<br/>
+			<strong>Reviews :</strong> {{vm.product.productReview}}/5<br/>
+			<strong>Size :</strong> {{vm.product.productSize}}<br/>
+			<strong>Gender :</strong> {{vm.product.Gender}}<br/>
+			<a ng-disabled="vm.product.productQuantity <= 0" ng-click="vm.addToCart(vm.product.productName,vm.product.productPrice,1)" style="text-decoration:none;">Add To Cart</a>
+		</div>
+		
+		
+	</div>
+	
+	<div ng-if="!vm.product.productName">
+		<h1 style="color:red;"> For Proper Functioning of App First Login with 'productHandler' username to register product. </h1>
+	</div>
+	
+</div>
